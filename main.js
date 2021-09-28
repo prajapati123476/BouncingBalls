@@ -8,10 +8,16 @@ let count = 0;
 const canvas = document.querySelector('canvas');
 const ctx = canvas.getContext('2d');
 
-const width = canvas.width = window.innerWidth;
-const height = canvas.height = window.innerHeight;
+let width = canvas.width = window.innerWidth;
+let height = canvas.height = window.innerHeight;
 
 // function to generate random number
+
+window.addEventListener('resize', function(event) {
+    width = canvas.width = window.screen.width;
+	height = canvas.height = window.screen.height;
+}, true);
+
 
 function random(min,max) {
   const num = Math.floor(Math.random()*(max-min)) + min;
